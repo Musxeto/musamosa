@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Contact
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 def index(request):
     context = {
         'bladee': "in my bag one second"
@@ -14,5 +16,9 @@ def samosay(request):
 
 def contact(request):
     if request.method == 'POST':
-        return HttpResponse('POST request received')
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+        Contact.objects.create(name=name, email=email, message=message)
+        return HttpResponseRedirect(reverse('contact'))
     return render(request, 'contact.html')

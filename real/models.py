@@ -1,8 +1,7 @@
 from django.db import models
 
-# Create your models here.
-class contact(models.Model):
-    name = models.CharField(max_length=122)
-    email = models.CharField(max_length=122)
+class Contact(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
     message = models.TextField()
-    date = models.DateField()
+    date = models.DateTimeField(auto_now_add=True)
