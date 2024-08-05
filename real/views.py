@@ -7,10 +7,10 @@ def index(request):
     return render(request,'index.html',context)
 
 def about(request):
-    return HttpResponse("about")
+    return render(request,' about.html')
 
-def services(request):
-    return HttpResponse("contact")
+def samosay(request):
+    return render(request,'samosay.html')
 
 def contact(request):
-    return HttpResponse("Contact Page")
+    return render(request,'contact.html')
