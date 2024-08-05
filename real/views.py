@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from django.http import HttpResponse
 def index(request):
     context = {
         'bladee': "in my bag one second"
@@ -13,5 +13,6 @@ def samosay(request):
     return render(request, 'samosay.html')
 
 def contact(request):
-    
+    if request.method == 'POST':
+        return HttpResponse('POST request received')
     return render(request, 'contact.html')
