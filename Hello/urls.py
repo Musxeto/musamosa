@@ -22,6 +22,9 @@ admin.site.site_header = "MuSamosa Admin"
 admin.site.side_title = "MuSamosa Admin Portal"
 admin.site.index_title = "Welcome To MuSamosa"
 urlpatterns = [
-    path("",views.index, name='home'),
-    path('admin/', admin.site.urls),    
+    path("", views.index, name='real'),
+    path("about/", views.about, name="about"),
+    path("samosay/", views.samosay, name="samosay"),
+    path("contact/", views.contact, name="contact"),
+    path('admin/', admin.site.urls),
 ]
